@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript"  src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
+	<script type="text/javascript"  src="./js/jquery-3.2.0.min.js"></script>
+	<script src="./js/vue.js"></script>
+	<link rel="stylesheet" href="./css/zhituteach.css">
+	<link rel="stylesheet" type="text/css" href="./Swiper-3.4.2/dist/css/swiper.min.css">
+</head>
+<body>
+	<div id="main">
+		<div class="top">
+			<img src="./images/logo.png" alt="">
+			<div class="my">
+				<img src="./images/my.png" alt=""> 
+				<span >我的</span>
+		</div>
+		</div>
+		<div class="pic-list">
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			    	<a class="swiper-slide" href="javascript:void(0)" v-for='item in picList'>
+						<img :src="item.image">
+					</a>			
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div class="subjects-list">
+				<ul>
+					<li v-for='item in subjectList'>
+						<a v-bind:href="'./fenlei.html?id='+item.id+'&name='+item.name">
+							<img :src="item.icon">
+							<p>{{item.name}}</p>
+						</a>
+					</li>
+				</ul>
+		</div>
+		<h5 class="hot-title">热门教师</h5>
+		<div class="teachers">
+			<a class="teacher" :href="'./teachernews.html?id='+item.id" v-for="item in list">
+				<div class="teacher-item">
+					<img :src="item.image">
+					<div class="teacher-info">
+						<p>
+							<span class="name">{{item.name}}</span>
+							<span class="subject">{{item.subject[0].label}}</span>
+							<span class="level">{{item.grade[0].label}}</span>
+							<span class="number">授课{{item.teach_time}}小时</span>
+						</p>
+						<p><span class="time">{{item.teach_year}}年教龄</span></p>
+						<p class="star">
+							<img src="./images/icon3.png" alt="">
+							<span>{{item.type[0].label}}</span>
+						</p>
+					</div>
+				</div>
+			</a>							
+		</div>
+	</div>
+	<script src="./Swiper-3.4.2/dist/js/swiper.min.js"></script>
+	<script src="./js/zhituteach.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"></script>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    </head>
+    <style type="text/css">
+    	span {
+    		display: inline-block;
+    		margin: 10px;
+    	}
+    </style>
+    <body>
+        <div id="main">
+        	<div>
+        		<ul>
+	        		<li>{{ grade }}</li>
+	        		<li>{{ subject }}</li>
+	        		<li>{{ teacherType }}</li>
+	        	</ul>
+	        	<div>
+	        		<div>
+	        			<span v-for="item in condition.grade" @click="clickItem(item)">{{ item.label }}</span>
+	        		</div>
+	        		<div>
+	        			<span v-for="item in condition.subject" @click="clickItem(item)">{{ item.label }}</span>
+	        		</div>
+	        		<div>
+	        			<span v-for="item in condition.type" @click="clickItem(item)">{{ item.label }}</span>
+	        		</div>
+	        	</div>
+        	</div>
+            <ul>
+            	<li v-for="item in teacherList">{{ item.name }}</li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var tab = new Vue({
+                el:"#main",
+                data: {
+                	condition:{},
+                    teacherList: [],
+                    grade: '年级',
+                    subject: '学科',
+                    teacherType: '教师类型',
+                },
+                mounted: function(){
+                	this.getList();
+                },
+                methods: {
+                	getQuery:function(){
+						var str = (location.search.length > 0 ? location.search.substring(1) : ''),
+						args = {},
+						items = str.length ? str.split("&") : [],
+						item = null,
+						name = null,
+						value = null;
+						for (i=0; i < items.length; i++){
+							item = items[i].split("=");
+							name = decodeURIComponent(item[0]);
+							value = decodeURIComponent(item[1]);
+							if (name.length) {
+								args[name] = value;
+							}
+						}
+						return args;
+					},
+                    getList:function(){
+                    	var that = this;
+                    	var subjecId = that.getQuery().id;
+                    	$.ajax({
+                    		'url': 'http://api.zhituteam.com/api/teacher/lists',
+                    		'type': "get",
+                    		'dataType': 'json',
+                    		'data': {
+                    			// 'subject': subjecId,
+                    			'subject': 14,
+								'offset': 0,
+								'limit': 20
+                    		},
+                    		success:function(res){
+                    			that.list = res.data.teacher;
+                    			that.condition = res.data.condition;
+                    		}
+                    	})
+                    },
+                    clickItem:function(item){
+                    	alert(JSON.stringify(item));
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

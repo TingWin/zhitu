@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript"  src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
+	<script type="text/javascript"  src="./js/jquery-3.2.0.min.js"></script>
+	<script src="./js/vue.js"></script>
+	<link rel="stylesheet" href="./css/teachernews.css">
+	<link rel="stylesheet" type="text/css" href="./Swiper-3.4.2/dist/css/swiper.min.css">
+	<title>Document</title>
+</head>
+<body>
+	<div id="main">
+			<div class="teacher-news">
+				<img :src="list.image">
+				<div class="teacher-info">
+					<p class="detail">
+						<span class="name">{{list.name}}</span>
+						<span class="subject">{{list.subject[0].label}}</span>
+						<span class="level">{{list.grade[0].label}}</span>
+						<span class="price">{{list.price}}</span>
+					</p>
+					<p class="teach-old">
+						<span >{{list.teach_year}}年教龄</span>
+					</p>
+					<p class="type">
+						<img src="./images/icon1.png" alt="">
+						<span>{{list.type[0].label}}</span>
+					</p>
+					<i>已授课{{list.teach_time}}小时</i>
+				</div>
+			</div>
+			<div class="info-box">
+				<div class="assess-teacher-info">
+					<img src="./images/icon2.png" alt="">
+					<p class="title">个人简介</p> 
+					<div class="content">
+						<p>{{list.teacher_experience[0].content}}</p>
+					</div>
+				</div>
+				<div class="assess-teacher-info">
+					<img src="./images/icon2.png" alt="">
+					<p class="title">教学经历</p> 
+					<div class="content">
+						<p>{{list.teacher_experience[0].title}}</p>
+					</div>
+				</div>
+				<div class="assess-teacher-info">
+					<img src="./images/icon2.png" alt="">
+					<p class="title">成功案例</p> 
+					<div class="content teach-case-content" v-for="item in list.teacher_case">
+						<p class="teach-title">{{item.title}}</p> 
+						<p>{{item.content}}</p>
+					</div>
+					<!-- <div class="content">
+						<p class="teach-title">{{list.teacher_case[1].title</p>
+						<p>{{list.teacher_case[1].content}}</p>
+					</div> -->
+				</div>
+			</div>
+			<div class="order-line">
+				<div class="order-text">
+      				满意就预约吧
+	    		</div> 
+	    		<hr>
+    		</div>
+    		<div class="order-btn">
+    			<div class="btn collect">
+    				<span> 收藏</span>
+    			</div> 
+    			<div class="btn order-now">
+      				预约试讲
+    			</div>
+    		</div>
+	</div>
+	<script src="./js/teachernews.js"></script>
+</body>
+</html>

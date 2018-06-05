@@ -1,0 +1,155 @@
+html,body,p {
+	margin: 0;
+	padding: 0;
+}
+html,body {
+	font-size: 62.5%;
+	background: #f5f5f5;
+}
+.teacher-news {
+	background: #fff;
+    height: 12rem;
+    padding-left: 10rem;
+    position: relative;
+    margin-bottom: 0.26667rem;
+}
+.teacher-news>img {
+	position: absolute;
+    left: 1.4rem;
+    top: 1.4rem;
+    width: 7.5rem;
+    height: 7.5rem;
+}
+.teacher-info .detail {
+	width: 100%;
+    display: inline-block;
+    margin-top: 0.48rem;
+}
+.teacher-info .detail .name {
+	font-size: 1.4rem;
+    color: #262323;
+}
+.teacher-info .detail .subject {
+	font-size: 1rem;
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    color: #fff;
+    border-radius: 0.5rem;
+    background: #52c644;
+    border: 1px solid #52c644;
+}
+.teacher-info .detail .level {
+	font-size: 1rem;
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #097c25;
+    color: #097c25;
+}
+.teacher-info .detail .price {
+	font-size: 1rem;
+    color: #ee4034;
+    float: right;
+    margin-right: 0.4rem;
+}
+.teacher-info .teach-old {
+	margin-top: 1rem;
+}
+.teacher-info .teach-old span {
+	font-size: 1.34667rem;
+    color: #888;
+}
+.teacher-info .type {
+	position: absolute;
+    bottom: 3.5rem;
+}
+.teacher-info .type span {
+	font-size: 1.3rem;
+    color: #262323;
+    margin-left: 2rem;
+    display: inline-block;
+}
+.teacher-news .teacher-info .type img {
+	width: 1.8rem;
+	height: 1.8rem;
+	position: absolute;
+    bottom: 0rem;
+}
+.teacher-news .teacher-info i {
+	font-style: normal;
+    font-size: 1.34667rem;
+    color: #888;
+    position: absolute;
+    right: 0.4rem;
+    bottom: 3.5rem;
+}
+.info-box {
+	background: #fff;
+    padding: 0.4rem 0 0.18667rem 0;
+    margin: 1rem 0;
+}
+.info-box .assess-teacher-info {
+    padding: 0 0.4rem;
+}
+.info-box .assess-teacher-info img {
+	display: inline-block;
+	width: 1.8rem;
+	height: 1.8rem;
+}
+.info-box .assess-teacher-info .title {
+	font-size: 1.4rem;
+    color: #262323;
+    display: inline-block;
+}
+.assess-teacher-info .content {
+    padding: 1.2rem 0 1.2rem 2.2rem;
+    font-size: 1.34667rem;
+    color: #888;
+}
+.assess-teacher-info .teach-case-content {
+    border-bottom: 1px solid #d8dded;
+}
+.assess-teacher-info .teach-title {
+    font-size: 1.34667rem;
+    color: #2b2b2b;
+}
+.order-line {
+    width: 60%;
+    position: relative;
+    margin: 0.8rem auto 2.13333rem auto;
+}
+.order-line .order-text {
+    color: #9e9c9c;
+    position: absolute;
+    top: -3rem;
+    left: 4.6rem;
+    font-size: 1.4rem;
+    background: #f5f5f5;
+    padding: 2rem 2.1333rem;
+}
+.order-btn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0;
+}
+.order-btn .collect {
+    width: 15%;
+    background: #49a775;
+/*    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAYAAABxlTA0AAAAGXRFW…n0SwcfK+vLJY2BvULmFxGTK+bXuAzBhmAjhmBDcMbK/wIMAOmYAKfMgc0UAAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-size: 0.53333rem 0.53333rem;
+    background-position: 0.48rem 0.16rem;*/
+}
+.order-btn .btn {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: #fff;
+    height: 1.33333rem;
+    line-height: 1.33333rem;
+    text-align: center;
+}
+.order-btn .order-now {
+    width: 85%;
+    background: #2dc072;
+}

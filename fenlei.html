@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript"  src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
+	<script type="text/javascript"  src="./js/jquery-3.2.0.min.js"></script>
+	<script src="./js/vue.js"></script>
+	<link rel="stylesheet" href="./css/fenlei.css">
+	<link rel="stylesheet" type="text/css" href="./Swiper-3.4.2/dist/css/swiper.min.css">
+	<title>分类</title>
+</head>
+<body>
+	<div id="app">
+		<div class="main">
+		<!-- 导航栏 -->
+			<ul class="clearfix">
+		        <li @click="clickGrade" :class="isShowGrade ? 'selected' : ''">
+			        {{ grade }}
+			        <i></i>
+		        </li>
+		        <li  @click="clickSubject" :class="isShowSubject ? 'selected' : ''">
+		        	{{ subject }}
+		        	<i></i>
+		        </li>
+		        <li @click="clickType" :class="isShowType ? 'selected' : ''">
+		        	{{ teacherType }}
+		        </li>
+		    </ul>
+		<!-- 下拉菜单 -->
+		    <div v-if="condition" class="tips" :class="isShowAllSelect ? 'show' : 'hide'">
+				<div :class="isShowGrade ? 'show' : 'hide'">
+		        	<span :class="item.isSelected ? 'selected' : ''" v-for="item in condition.grade" @click="clickItem(item)">{{ item.label }}</span>
+		        </div>
+		        <div :class="isShowSubject ? 'show' : 'hide'">
+		        	<span :class="item.isSelected ? 'selected' : ''" v-for="item in condition.subject" @click="clickItem(item)">{{ item.label }}</span>
+		        </div>
+		        <div :class="isShowType ? 'show' : 'hide'">
+		        	<span :class="item.isSelected ? 'selected' : ''" v-for="item in condition.type" @click="clickItem(item)">{{ item.label }}</span>
+		        </div>
+		    </div>
+		    <!-- 教师信息 -->
+			<div class="teachers">
+				<a :href="'./teachernews.html?id='+item.id" v-for="item in teacherList">
+					<div class="teacher-item">
+						<img :src="item.image">
+						<div class="teacher-info">
+							<p>
+								<span class="name">{{item.name}}</span>
+								<span class="subject">{{item.subject[0].label}}</span>
+								<span class="level">{{item.grade[0].label}}</span>
+								<span class="number">授课{{item.teach_time}}小时</span>
+							</p>
+							<p><span class="time">{{item.teach_year}}年教龄</span></p>
+							<p class="star">
+								<img src="./images/icon3.png" alt="">
+								<span>{{item.type[0].label}}</span>
+							</p>
+						</div>
+					</div>
+				</a>							
+			</div>
+		</div>
+	</div>
+	<script src="./js/fenlei.js"></script>
+</body>
+</html>
